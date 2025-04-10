@@ -1,9 +1,8 @@
 {
   "name": "my-evidence-project",
   "version": "0.0.1",
-  "build": "EVIDENCE_BUILD_DIR=./build/TVImpact evidence build",
   "scripts": {
-    "build": "evidence build",
+    "build": "EVIDENCE_BUILD_DIR=./build/TVImpact evidence build",
     "build:strict": "evidence build:strict",
     "dev": "evidence dev --open /",
     "test": "evidence build",
