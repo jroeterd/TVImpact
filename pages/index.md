@@ -34,3 +34,4 @@ order by energieklasseSort
     sort=false
 />
 
+# More charts
