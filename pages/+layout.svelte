@@ -6,7 +6,7 @@
 </script>
 
 <EvidenceDefaultLayout {data} 
-	logo="/logo.png"
+	logo="logo.png"
 	fullWidth=true
 	neverShowQueries=true>
 	<slot slot="content" />
