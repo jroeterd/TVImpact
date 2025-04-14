@@ -8,6 +8,8 @@
 <EvidenceDefaultLayout {data} 
 	logo="logo.png"
 	fullWidth=true
-	neverShowQueries=true>
+	neverShowQueries=true
+	githubRepo="https://github.com/jroeterd/tvimpact"
+	>
 	<slot slot="content" />
 </EvidenceDefaultLayout>
