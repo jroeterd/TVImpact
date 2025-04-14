@@ -10,6 +10,7 @@
 	fullWidth=true
 	neverShowQueries=true
 	githubRepo="https://github.com/jroeterd/tvimpact"
+	hideTOC=true
 	>
 	<slot slot="content" />
 </EvidenceDefaultLayout>

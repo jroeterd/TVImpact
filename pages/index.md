@@ -25,6 +25,13 @@ from energie.energie
 group by all
 order by energieklasseSort
 ```
+```sql values
+select count(*) as woonobjecten, avg(oppervlakte) as avgOppervlakte, count(distinct woning_type) as Woning_Types,
+max(gemiddelde_gemeente_woz) as woz from energie.energie
+```
+```sql valuesPand
+select min(pand_bouwjaar) as oudstePand from energie.energie where pand_bouwjaar <> 0
+```
 
 <BarChart
     data={energie_labels}
@@ -34,4 +41,71 @@ order by energieklasseSort
     sort=false
 />
 
+---
+
+<BigValue
+    data={values}
+    value=woonobjecten
+    fmt=num0
+/>
+<BigValue
+    data={values}
+    title="Gemiddelde oppervlakte"
+    value=avgOppervlakte
+    fmt=num1
+/>
+<BigValue
+    data={values}
+    title="Woning types"
+    value=Woning_Types
+    fmt=num#
+/>
+<BigValue
+    data={valuesPand}
+    title="Bouwjaar oudste pand"
+    value=oudstePand
+    fmt=id
+/>
+<BigValue
+    data={values}
+    title="Gemiddelde WOZ gemeente"
+    value=woz
+    fmt=num0
+/>
+
+---
+
+
 # More charts
+
+<Grid cols=2>
+    <DataTable data={mapWijk}
+        rows=all
+        totalRow=true
+        title="Aantal woonobjecten per wijk"
+    />
+    <DimensionGrid data={dimPlaats}
+        title="Dimension grid locatie/type"
+        metric=sum(aantal)
+        limit=all
+    />
+</Grid>
+
+
+```sql mapWijk
+select wijknaam, count(*) as aantal from energie.energie group by all
+```
+
+
+```sql dimPlaats
+select wijknaam, buurtnaam, woning_type, energieklasse, 1 as aantal from energie.energie 
+```
+
+
+
+
+
+
+
+
+
